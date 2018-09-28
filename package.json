@@ -1,0 +1,32 @@
+{
+  "name": "mis-puntos-backend",
+  "version": "1.0.0",
+  "description": "\"Mis puntos\" Nodejs + MySQL backend project",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jwt-simple": "^0.5.5",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.1",
+    "nodemailer": "^4.6.8",
+    "nodemon": "^1.18.4",
+    "sequelize": "^4.39.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstiven013/mis-puntos-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstiven013/mis-puntos-backend/issues"
+  },
+  "homepage": "https://github.com/mstiven013/mis-puntos-backend#readme"
+}
