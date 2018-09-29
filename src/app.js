@@ -2,6 +2,7 @@
 
 //Required's to execute app
 const config = require('./config');
+const conn = require('./connection');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -36,6 +37,17 @@ app.use(function (req, res, next) {
 //Static files
 app.use(express.static(__dirname + '/public'));
 
-app.listen(config.port, () => {
-    console.log('Server on port:', config.port);
-});
+//Check if connection is successfully
+conn.authenticate()
+    .then(() => {
+        console.log('Connect Successfully')
+
+        //Run API
+        app.listen(config.port, () => {
+            console.log('Server on port:', config.port);
+        });
+    })
+    .catch((e) => {
+        //check if an error has ocurred in database connection
+        console.log('Database connection error:', e)
+    })
