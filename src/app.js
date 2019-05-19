@@ -37,17 +37,10 @@ app.use(function (req, res, next) {
 //Static files
 app.use(express.static(__dirname + '/public'));
 
-//Check if connection is successfully
-conn.authenticate()
-    .then(() => {
-        console.log('Connect Successfully')
+//Routes
+app.use(API_URL + '/users', require('./components/users/usersRoutes'));
 
-        //Run API
-        app.listen(config.port, () => {
-            console.log('Server on port:', config.port);
-        });
-    })
-    .catch((e) => {
-        //check if an error has ocurred in database connection
-        console.log('Database connection error:', e)
-    })
+//Run API
+app.listen(config.port, () => {
+    console.log('Server on port:', config.port);
+});
